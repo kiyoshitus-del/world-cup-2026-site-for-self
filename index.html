@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>サッカーW杯 2026</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="app-header">
+        <div class="title-row">
+          <div class="trophy" aria-hidden="true">🏆</div>
+          <div>
+            <h1>サッカーW杯 2026</h1>
+            <p><span class="host host-usa">USA</span><span class="host host-canada">CANADA</span><span class="host host-mexico">MEXICO</span></p>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section id="matches" class="screen is-active" aria-labelledby="matches-title">
+          <div class="screen-head">
+            <div>
+              <h2 id="matches-title">試合</h2>
+              <p class="eyebrow">Match Day</p>
+            </div>
+            <span class="time-note">すべて日本時間</span>
+          </div>
+          <div class="date-switcher">
+            <button class="circle-button" id="prev-day" type="button" aria-label="前日">‹</button>
+            <div class="date-current">
+              <strong id="current-date-label"></strong>
+              <button class="calendar-button" id="calendar-toggle" type="button" aria-label="カレンダーを開く" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 3v3M17 3v3M4.5 9.2h15M6.5 5h11A2.5 2.5 0 0 1 20 7.5v10A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-10A2.5 2.5 0 0 1 6.5 5Z"/>
+                </svg>
+              </button>
+            </div>
+            <button class="circle-button" id="next-day" type="button" aria-label="翌日">›</button>
+          </div>
+          <div class="calendar-popover" id="match-calendar" hidden>
+            <div class="calendar-head">
+              <div class="calendar-month-controls">
+                <button class="month-button" type="button" data-calendar-month="-1" aria-label="前の月">‹</button>
+                <strong id="calendar-month-label">2026年6月</strong>
+                <button class="month-button" type="button" data-calendar-month="1" aria-label="次の月">›</button>
+              </div>
+              <span>日付を選択</span>
+            </div>
+            <div class="calendar-weekdays" aria-hidden="true">
+              <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </div>
+          <div id="match-list" class="stack"></div>
+          <p class="rank-note">#はFIFAランキング順位</p>
+        </section>
+
+        <section id="groups" class="screen" aria-labelledby="groups-title">
+          <div class="screen-head">
+            <div>
+              <h2 id="groups-title">グループ順位表</h2>
+              <p class="eyebrow">Group Stage</p>
+            </div>
+          </div>
+          <div id="group-chips" class="chip-row sticky-chips"></div>
+          <div id="group-list" class="stack group-stack"></div>
+        </section>
+
+        <section id="tournament" class="screen" aria-labelledby="tournament-title">
+          <div class="screen-head">
+            <div>
+              <h2 id="tournament-title">トーナメント</h2>
+              <p class="eyebrow">Knockout Stage</p>
+            </div>
+          </div>
+          <div id="round-tabs" class="chip-row round-tabs"></div>
+          <div id="bracket-scroll" class="bracket-scroll" aria-label="決勝トーナメント表">
+            <div id="bracket" class="bracket"></div>
+          </div>
+        </section>
+
+        <section id="rankings" class="screen" aria-labelledby="rankings-title">
+          <div class="screen-head">
+            <div>
+              <h2 id="rankings-title">ランキング</h2>
+              <p class="eyebrow">Rankings</p>
+            </div>
+          </div>
+          <div class="segmented" role="tablist" aria-label="ランキング種別">
+            <button class="rank-tab is-active" type="button" data-ranking-tab="countries">国ランキング</button>
+            <button class="rank-tab" type="button" data-ranking-tab="players">選手ランキング</button>
+            <button class="rank-tab" type="button" data-ranking-tab="fifa">FIFAランキング</button>
+          </div>
+          <div class="ranking-search" role="search">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="11" cy="11" r="6"></circle>
+                <path d="m16 16 4 4"></path>
+              </svg>
+            </span>
+            <input id="ranking-search-input" type="search" autocomplete="off" placeholder="国名で検索" aria-label="ランキングを検索">
+            <button id="ranking-search-clear" class="search-clear" type="button" aria-label="検索をクリア">×</button>
+          </div>
+          <div id="ranking-metric-tabs" class="ranking-metric-tabs"></div>
+          <div id="ranking-content" class="stack"></div>
+        </section>
+      </main>
+
+      <nav class="bottom-tabs" aria-label="メニュー">
+        <button class="nav-tab is-active" type="button" data-target="matches">
+          <span class="tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8.25"></circle>
+              <path d="M12 7.7 15.55 10.25 14.2 14.35H9.8L8.45 10.25 12 7.7Z"></path>
+              <path d="M8.45 10.25 4.35 9.45M15.55 10.25 19.65 9.45M9.8 14.35 7.35 18M14.2 14.35 16.65 18"></path>
+            </svg>
+          </span>
+          <span>試合</span>
+          <i></i>
+        </button>
+        <button class="nav-tab" type="button" data-target="groups">
+          <span class="tab-icon" aria-hidden="true">▦</span>
+          <span>グループ</span>
+          <i></i>
+        </button>
+        <button class="nav-tab" type="button" data-target="tournament">
+          <span class="tab-icon" aria-hidden="true">◇</span>
+          <span>トーナメント</span>
+          <i></i>
+        </button>
+        <button class="nav-tab" type="button" data-target="rankings">
+          <span class="tab-icon" aria-hidden="true">↟</span>
+          <span>ランキング</span>
+          <i></i>
+        </button>
+      </nav>
+    </div>
+
+    <script src="script.js?v=20260615-datafix"></script>
+  </body>
+</html>
